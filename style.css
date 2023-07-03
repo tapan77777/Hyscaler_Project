@@ -1,0 +1,24 @@
+﻿  .form-select:focus {
+  box-shadow: none!important;
+  border-color:#FF3780!important;
+}    
+.form-control:focus {
+  box-shadow: none!important;
+  border-color:#FF3780!important; 
+}
+
+.form-select{
+  
+}    
+.form-control{
+  
+}
+input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+  
+        input[type=number] {
+            -moz-appearance: textfield;
+        }

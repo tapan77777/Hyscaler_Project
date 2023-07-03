@@ -1,0 +1,202 @@
+﻿<%@ Master Language="VB" CodeFile="admin.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+    <style>
+        li i {
+            color:#FFDD04;
+        }
+    </style>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="assets/fontawesome/css/all.css" rel="stylesheet" />
+    <script src="assets/validation.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    
+   
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="assets/vendors/simplebar/css/simplebar.css">
+    <link rel="stylesheet" href="assets/vendors/simplebar/css/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link href="style.css" rel="stylesheet" />
+    <link href="assets/css/examples.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        // Shared ID
+        gtag('config', 'UA-118965717-3');
+        // Bootstrap ID
+        gtag('config', 'UA-118965717-5');
+    </script>
+    <link href="assets/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+ 
+</head>
+<body>
+    <form id="form1" runat="server"  autocomplete="off">
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex">
+       
+          <h3><i class="fa-solid fa-car-burst"></i></h3>
+      </div>
+      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+        
+        <li class="nav-title">Admin</li>
+        
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+           
+              <i class="fa-solid fa-boxes-packing"></i>&nbsp;
+            Slot</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="slot_new.aspx"> New Slot</a></li>
+            <li class="nav-item"><a class="nav-link" href="slot_report.aspx"> Display Slot</a></li>
+            
+          </ul>
+        </li>
+    
+         
+           <li class="nav-item"><a class="nav-link" href="admin_parking_details.aspx">
+            <i class="fa-solid fa-square-parking"></i>&nbsp; Parking Details</a>
+
+           </li>
+
+           <li class="nav-item"><a class="nav-link" href="admin_parking_history.aspx">
+             <i class="fa-solid fa-square-parking"></i>&nbsp; Parking History</a>
+
+           </li>
+          <li class="nav-item"><a class="nav-link" href="search_parking.aspx">
+             <i class="fa-solid fa-square-parking"></i>&nbsp; Search Parking History</a>
+
+           </li>
+ <li class="nav-item"><a class="nav-link" href="customer_details.aspx">
+            <i class="fa-solid fa-user-secret"></i>&nbsp; Customer Details</a>
+
+           </li>
+           <li class="nav-item"><a class="nav-link" href="login_admin.aspx">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp; Logout</a>
+
+           </li>
+
+      </ul>
+      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <header class="header header-sticky mb-4">
+        <div class="container-fluid">
+          <button class="header-toggler px-md-0 me-md-3" style="color:red" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+            
+              <div style="color:red" class="icon icon-lg">
+			  <i class="fa-solid fa-bars"></i>
+			  </div>
+	
+           
+          </button><a class="header-brand d-md-none" href="#">
+            <svg width="118" height="46" alt="CoreUI Logo">
+              <use xlink:href="assets/brand/coreui.svg#full"></use>
+            </svg></a>
+          <ul class="header-nav d-none d-md-flex">
+            <li class="nav-item"><a class="nav-link">Car Parking Management System</a></li>
+           
+          </ul>
+          <ul class="header-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                </svg></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                </svg></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                </svg></a></li>
+          </ul>
+          <ul class="header-nav ms-3">
+            <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar avatar-md" style="font-size:20px;"><i class="fa-solid fa-car-burst"></i></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end pt-0">
+                
+                <div class="dropdown-header bg-light py-2">
+                  <div class="fw-semibold">Settings</div>
+                </div>
+                  
+                <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="login_admin.aspx">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                  </svg> Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="header-divider"></div>
+        <div class="container-fluid">
+         
+        </div>
+      </header>
+      <div class="body flex-grow-1 px-3">
+        <div class="container-lg">
+          <div class="row">
+            <div class="col-sm-6 col-lg-12">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+              <div class="card mb-12">
+            <div class="card-header"><strong>Buttons</strong></div>
+                  FDSF
+                  </div>
+</asp:ContentPlaceHolder>
+
+            </div>
+        
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mb-4">
+              </div>
+            </div>
+            <!-- /.col-->
+          </div>
+          <!-- /.row-->
+        </div>
+      </div>
+      <footer class="footer">
+        <div> <center><a href="https://itsacad.com">Copyrights@</a> © 2022</center> </div>
+       
+      </footer>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="assets/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="assets/vendors/simplebar/js/simplebar.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="assets/vendors/chart.js/js/chart.min.js"></script>
+    <script src="assets/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="assets/vendors/@coreui/utils/js/coreui-utils.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    </script>
+        
+        
+        
+    
+    </form>
+</body>
+</html>
